@@ -1,0 +1,15 @@
+{
+  "manifest_version": 2,
+  "name": "Custom New Tab",
+  "version": "1.0",
+  "description": "Заменяет страницу новой вкладки на кастомную",
+  "icons": {
+    "48": "icons/icon.png"
+  },
+  "chrome_url_overrides": {
+    "newtab": "newtab.html"
+  },
+  "permissions": [
+    "tabs"
+  ]
+}
