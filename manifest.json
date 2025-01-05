@@ -7,9 +7,7 @@
     "48": "icons/icon.png"
   },
   "chrome_url_overrides": {
-    "newtab": "newtab.html"
+    "newtab": "index.html"
   },
-  "permissions": [
-    "tabs"
-  ]
+  "permissions": ["tabs"]
 }
