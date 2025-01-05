@@ -51,6 +51,9 @@ p {
   margin: 10px;
   border: 0;
   border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 img {
