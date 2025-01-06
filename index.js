@@ -1,17 +1,18 @@
 data = ["https://chatgpt.com", "https://youtube.com", "https://vk.com"];
 
 searchProvider = {
-  yandex: "https://yandex.ru/search/?text=",
-  google: "https://www.google.com/search?q=",
+  Yandex: "https://yandex.ru/search/?text=",
+  Google: "https://www.google.com/search?q=",
 };
+
+let searchProviderSelected = JSON.parse(localStorage.getItem("searchProvider")) || "yandex";
 
 shortcuts = document.getElementById("shortcuts");
 
 for (let i = 0; i < data.length; i++) {
   let link = document.createElement("img");
   if (data[i] === "https://youtube.com") {
-    link.src =
-      "https://www.youtube.com/s/desktop/26a583e4/img/logos/favicon_144x144.png";
+    link.src = "https://www.youtube.com/s/desktop/26a583e4/img/logos/favicon_144x144.png";
   } else {
     link.src = data[i] + "/favicon.ico";
   }
@@ -27,17 +28,20 @@ for (let i = 0; i < data.length; i++) {
   shortcuts.appendChild(link);
 }
 
-selectedSearcher = "google";
-
 document.body.addEventListener("keydown", function (event) {
   if (event.key === "Enter") {
     let query = document.getElementById("search").value;
     if (query) {
       query = query.replace(/ /g, "+"); // Заменяем все пробелы на плюсы
-      const url = `${searchProvider[selectedSearcher]}${query}`;
+      const url = `${searchProvider[searchProviderSelected]}${query}`;
       window.location.href = url; // Открывает ссылку в той же вкладке
     }
   }
+});
+
+document.getElementById("options_search").addEventListener("change", function () {
+  searchProviderSelected = this.options[this.selectedIndex].text;
+  localStorage.setItem("searchProvider", JSON.stringify(searchProviderSelected));
 });
 
 window.addEventListener("load", function () {
@@ -56,20 +60,7 @@ function updateTime() {
 function updateDate() {
   const now = new Date();
   const daysOfWeek = ["вс", "пн", "вт", "ср", "чт", "пт", "сб"];
-  const months = [
-    "января",
-    "февраля",
-    "марта",
-    "апреля",
-    "мая",
-    "июня",
-    "июля",
-    "августа",
-    "сентября",
-    "октября",
-    "ноября",
-    "декабря",
-  ];
+  const months = ["января", "февраля", "марта", "апреля", "мая", "июня", "июля", "августа", "сентября", "октября", "ноября", "декабря"];
   const dayOfWeek = daysOfWeek[now.getDay()];
   const day = now.getDate();
   const month = months[now.getMonth()];

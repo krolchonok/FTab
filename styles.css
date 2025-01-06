@@ -81,3 +81,32 @@ img {
   outline: none;
   font-family: "CustomFontSearch";
 }
+
+#settings_menu {
+  position: fixed;
+  top: 14px;
+  right: 50px;
+}
+
+.selecter {
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+b {
+  margin-right: 10px;
+}
+
+select {
+  background-color: transparent;
+  color: white;
+  border-radius: 10px;
+  padding: 5px;
+  border: 2px solid white;
+  text-align: center;
+}
+select:focus {
+  background-color: black;
+}
