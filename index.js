@@ -5,7 +5,7 @@ searchProvider = {
   Google: "https://www.google.com/search?q=",
 };
 
-let searchProviderSelected = JSON.parse(localStorage.getItem("searchProvider")) || "yandex";
+let searchProviderSelected = JSON.parse(localStorage.getItem("searchProvider")) || "Yandex";
 
 shortcuts = document.getElementById("shortcuts");
 
