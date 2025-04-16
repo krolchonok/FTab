@@ -11,26 +11,120 @@
 
 <body>
   <div id="shortcuts">
+    <!-- Ярлыки будут добавлены через JavaScript -->
   </div>
+  
   <div id="settings">
-    <i class="fa-solid fa-bars"></i>
+    <img id="set_but" class="settings_button" src="./settings.png" alt="Настройки">
   </div>
+  
   <div class="content">
+    
     <h1 id="time">00:00:00</h1>
     <h1 id="date">пн 6 января 2025</h1>
+    
+    <div id="greeting"></div>
+    
     <div id="searchBar">
-      <input type="text" id="search" placeholder="введите запрос..." autofocus />
+      <div class="search-wrapper">
+        <span id="search-icon" class="search-icon"><i class="fas fa-search"></i></span>
+        <input type="text" id="search" placeholder="введите запрос..." autofocus />
+        <span id="search-clear" class="search-clear"><i class="fas fa-times"></i></span>
+      </div>
+    </div>
+    
+    <div id="quick-apps" class="quick-apps-container">
+      <!-- Быстрые приложения будут добавлены через JavaScript -->
     </div>
   </div>
-  <div style="display: none;" id=settings_menu>
-    <div class="selecter">
-      <b>Поисковая система</b>
-      <select id="options_search">
-        <option value="yandex">Yandex</option>
-        <option value="google">Google</option>
-      </select>
+  
+  <div id="settings_menu" class="settings-panel" style="display: none;">
+    <div class="settings-header">
+      <h2>Настройки</h2>
+      <span id="close-settings"><i class="fas fa-times"></i></span>
+    </div>
+    
+    <div class="settings-section">
+      <h3>Основные</h3>
+      <div class="setting-item">
+        <label for="options_search">Поисковая система</label>
+        <select id="options_search">
+          <option value="yandex">Yandex</option>
+          <option value="google">Google</option>
+          <option value="bing">Bing</option>
+          <option value="duckduckgo">DuckDuckGo</option>
+        </select>
+      </div>
+      
+      <div class="setting-item">
+        <label for="theme-select">Тема оформления</label>
+        <select id="theme-select">
+          <option value="dark">Темная</option>
+          <option value="light">Светлая</option>
+          <option value="custom">Пользовательская</option>
+        </select>
+      </div>
+      
+      <div id="custom-theme-settings" class="custom-theme-settings" style="display: none;">
+        <div class="color-picker">
+          <label for="bg-color">Цвет фона</label>
+          <input type="color" id="bg-color" value="#000000">
+        </div>
+        <div class="color-picker">
+          <label for="text-color">Цвет текста</label>
+          <input type="color" id="text-color" value="#FFFFFF">
+        </div>
+        <div class="color-picker">
+          <label for="accent-color">Акцентный цвет</label>
+          <input type="color" id="accent-color" value="#4285F4">
+        </div>
+      </div>
+    </div>
+    
+    <div class="settings-section">
+      <h3>Ярлыки</h3>
+      <div class="setting-item">
+        <label for="link_input">Добавить ссылку</label>
+        <div class="add-link-container">
+          <input type="text" id="link_input" placeholder="Введите URL" />
+          <input type="text" id="link_name" placeholder="Название (опционально)" />
+          <button id="add_link">Добавить</button>
+        </div>
+      </div>
+      
+      <div class="links-list-container">
+        <h4>Текущие ярлыки</h4>
+        <ul id="links_list" class="links-list"></ul>
+      </div>
+    </div>
+    
+    <div class="settings-section">
+      <h3>Дополнительно</h3>
+      <div class="setting-item">
+        <label for="show-weather">Показывать погоду</label>
+        <input type="checkbox" id="show-weather" checked>
+      </div>
+      <div class="setting-item">
+        <label for="show-greeting">Показывать приветствие</label>
+        <input type="checkbox" id="show-greeting" checked>
+      </div>
+      <div class="setting-item">
+        <label for="time-format">Формат времени</label>
+        <select id="time-format">
+          <option value="24">24-часовой</option>
+          <option value="12">12-часовой</option>
+        </select>
+      </div>
+    </div>
+    
+    <div class="settings-footer">
+      <button id="save-settings">Сохранить настройки</button>
+      <button id="reset-settings">Сбросить настройки</button>
     </div>
   </div>
+  
+  <div id="toast" class="toast"></div>
+  
   <script src="index.js"></script>
 </body>
 
